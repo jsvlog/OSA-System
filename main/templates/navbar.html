@@ -7,13 +7,13 @@
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
           <a class="nav-link active" aria-current="page" href="#">In/Out Docs</a>
-          <a class="nav-link" href="#">Docs Inventory</a>
-          <a class="nav-link" href="#">leaves</a>
+          <a class="nav-link active" href="#">Inventory</a>
+          <a class="nav-link active" href="#">leaves</a>
         </div>
       </div>
         {% if user.is_authenticated %}
         <div class="navbar-nav ml-auto"> <!-- 'ml-auto' pushes content to the right -->
-        <a class="nav-link" href="logout">logout</a>
+        <a class="nav-link active" href="logout">logout</a>
         </div>
         {% else %}
         <div class="navbar-nav ml-auto"> <!-- 'ml-auto' pushes content to the right -->
