@@ -1,0 +1,8 @@
+/* In styles.css */
+.custom-bg {
+    background-color: #CDF5FD;
+}
+.shadow-div {
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+    padding: 20px; /* Optional, adds some padding to make the shadow more visible */
+}
