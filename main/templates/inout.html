@@ -7,19 +7,19 @@
 
 {% if user.is_authenticated %}
 
-<table id="custo" class="table table-striped" style="width:100%">
+<table id="custo" class="table table-hover table-bordered" style="width:100%">
     <thead>
       <tr>
-        <th scope="col">Date Received</th>
-        <th scope="col">Received from</th>
-        <th scope="col">Document type</th>
-        <th scope="col">Document date</th>
-        <th scope="col">Particulars</th>
-        {% comment %} <th scope="col">Copies</th>
-        <th scope="col">Date signed by SA</th>
-        <th scope="col">Transmittal number</th>
-        <th scope="col">Date sent out</th>
-        <th scope="col">Date received from region</th>
+        <th scope="col" class="text-center">Date Received</th>
+        <th scope="col" class="text-center">Received from</th>
+        <th scope="col" class="text-center">Document type</th>
+        <th scope="col" class="text-center">Document date</th>
+        <th scope="col" class="text-center">Particulars</th>
+        {% comment %} <th scope="col">Copies</th> {% endcomment %}
+        {% comment %} <th scope="col">Date signed by SA</th> {% endcomment %}
+        <th scope="col" class="text-center">Transmittal number</th>
+        <th scope="col" class="text-center">Date sent out</th>
+        {% comment %} <th scope="col">Date received from region</th>
         <th scope="col">Date received by region</th>
         <th scope="col">Location stored</th>
         <th scope="col">Date sent to teams</th>
@@ -36,17 +36,17 @@
                 <td>{{record.received_from}}</td>
                 <td>{{record.document_type}}</td>
                 <td>{{record.document_date}}</td>
-                <td>{{record.particulars}}</td>
+                <td  style="white-space: pre-line;">{{record.particulars}}</td>
                 {% comment %} <td>{{record.copies}}</td>
-                <td>{{record.date_signed_sa}}</td>
+                <td>{{record.date_signed_sa}}</td> {% endcomment %}
                 <td>{{record.transmittal_number}}</td>
                 <td>{{record.date_sent_out}}</td>
-                <td>{{record.date_received_from_region}}</td>
+                {% comment %} <td>{{record.date_received_from_region}}</td>
                 <td>{{record.date_received_by_region}}</td>
                 <td>{{record.location_stored}}</td>
                 <td>{{record.date_sent_to_teams}}</td>
-                <td>{{record.received_by_team}}</td>
-            </tr> {% endcomment %}
+                <td>{{record.received_by_team}}</td> {% endcomment %}
+            </tr>
         {% endfor %}
       {% endif %}
       
