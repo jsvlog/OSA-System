@@ -2,7 +2,19 @@
 .custom-bg {
     background-color: #CDF5FD;
 }
+.inside-bg {
+    background-color: #4bdcf9;
+}
 .shadow-div {
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
     padding: 20px; /* Optional, adds some padding to make the shadow more visible */
+}
+.custom-navbar {
+    padding: 0; /* Adjust the padding values as needed */
+    margin: 4px; /* Adjust the margin values as needed */
+}
+.banner-size {
+    /* width: 100px; */
+    height: 100px;
+    padding: 3px;
 }

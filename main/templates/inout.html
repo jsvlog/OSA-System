@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+
+
+{%block content%}
+
+
+{% if user.is_authenticated %}
+
+<table id="custo" class="table table-striped" style="width:100%">
+    <thead>
+      <tr>
+        <th scope="col">Date Received</th>
+        <th scope="col">Received from</th>
+        <th scope="col">Document type</th>
+        <th scope="col">Document date</th>
+        <th scope="col">Particulars</th>
+        {% comment %} <th scope="col">Copies</th>
+        <th scope="col">Date signed by SA</th>
+        <th scope="col">Transmittal number</th>
+        <th scope="col">Date sent out</th>
+        <th scope="col">Date received from region</th>
+        <th scope="col">Date received by region</th>
+        <th scope="col">Location stored</th>
+        <th scope="col">Date sent to teams</th>
+        <th scope="col">Received by team</th> {% endcomment %}
+
+      </tr>
+    </thead>
+    <tbody>
+      
+      {% if records %}
+        {% for record in records %}
+            <tr>
+                <td>{{record.date_received}}</td>
+                <td>{{record.received_from}}</td>
+                <td>{{record.document_type}}</td>
+                <td>{{record.document_date}}</td>
+                <td>{{record.particulars}}</td>
+                {% comment %} <td>{{record.copies}}</td>
+                <td>{{record.date_signed_sa}}</td>
+                <td>{{record.transmittal_number}}</td>
+                <td>{{record.date_sent_out}}</td>
+                <td>{{record.date_received_from_region}}</td>
+                <td>{{record.date_received_by_region}}</td>
+                <td>{{record.location_stored}}</td>
+                <td>{{record.date_sent_to_teams}}</td>
+                <td>{{record.received_by_team}}</td>
+            </tr> {% endcomment %}
+        {% endfor %}
+      {% endif %}
+      
+    </tbody>
+  </table>
+  {% endif %}
+  
+  {% endblock %}

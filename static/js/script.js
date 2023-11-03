@@ -1,1 +1,1 @@
-new DataTable('#custo');
+$("#custo").DataTable({})
