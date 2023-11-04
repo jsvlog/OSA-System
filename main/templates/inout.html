@@ -7,51 +7,109 @@
 
 {% if user.is_authenticated %}
 
-<table id="custo" class="table table-hover table-bordered" style="width:100%">
+<div class="row gx-1">
+  <div class="col-md-2">
+    <div class="form-check">
+        <input class="form-check-input" type="radio" name="contentOption" id="option1" checked>
+        <label class="form-check-label" for="DisplayTo">To Region</label>
+    </div>
+
+    <div class="form-check">
+        <input class="form-check-input" type="radio" name="contentOption" id="option2">
+        <label class="form-check-label" for="DisplayFrom">From region</label>
+    </div>
+  </div>
+  <div class="col-md-10 d-flex justify-content-end align-self-end">
+    <button type="button" class="btn btn-primary" id="btnToRegion">Add to Region</button>
+    <button type="button" class="btn btn-primary" id="btnFromRegion">Add from Region</button>
+  </div>
+</div>
+
+
+  
+
+
+<div class="row" id="DisplayTo" >
+  <table id="custo" class="table table-hover table-bordered" >
+      <thead>
+        <tr>
+          <th scope="col" class="text-center">Date Received</th>
+          <th scope="col" class="text-center">Received from</th>
+          <th scope="col" class="text-center">Document type</th>
+          <th scope="col" class="text-center">Document date</th>
+          <th scope="col" class="text-center">Particulars</th>
+          {% comment %} <th scope="col">Copies</th> {% endcomment %}
+          {% comment %} <th scope="col">Date signed by SA</th> {% endcomment %}
+          <th scope="col" class="text-center">Transmittal number</th>
+          <th scope="col" class="text-center">Date sent out</th>
+          {% comment %} <th scope="col">Date received from region</th>
+          <th scope="col">Date received by region</th>
+          <th scope="col">Location stored</th>
+          <th scope="col">Date sent to teams</th>
+          <th scope="col">Received by team</th> {% endcomment %}
+
+        </tr>
+      </thead>
+      <tbody>
+        
+        {% if records %}
+          {% for record in records %}
+              <tr>
+                  <td>{{record.date_received}}</td>
+                  <td>{{record.received_from}}</td>
+                  <td>{{record.document_type}}</td>
+                  <td>{{record.document_date}}</td>
+                  <td  style="white-space: pre-line;">{{record.particulars}}</td>
+                  {% comment %} <td>{{record.copies}}</td>
+                  <td>{{record.date_signed_sa}}</td> {% endcomment %}
+                  <td>{{record.transmittal_number}}</td>
+                  <td>{{record.date_sent_out}}</td>
+                  {% comment %} <td>{{record.date_received_from_region}}</td>
+                  <td>{{record.date_received_by_region}}</td>
+                  <td>{{record.location_stored}}</td>
+                  <td>{{record.date_sent_to_teams}}</td>
+                  <td>{{record.received_by_team}}</td> {% endcomment %}
+              </tr>
+          {% endfor %}
+        {% endif %}
+        
+      </tbody>
+  </table>
+</div>
+
+<div class="row" id="DisplayFrom" >
+  <table id="fromregion" class="table table-hover table-bordered" >
     <thead>
       <tr>
         <th scope="col" class="text-center">Date Received</th>
-        <th scope="col" class="text-center">Received from</th>
-        <th scope="col" class="text-center">Document type</th>
+        <th scope="col" class="text-center">Addressee</th>
         <th scope="col" class="text-center">Document date</th>
-        <th scope="col" class="text-center">Particulars</th>
-        {% comment %} <th scope="col">Copies</th> {% endcomment %}
-        {% comment %} <th scope="col">Date signed by SA</th> {% endcomment %}
-        <th scope="col" class="text-center">Transmittal number</th>
-        <th scope="col" class="text-center">Date sent out</th>
-        {% comment %} <th scope="col">Date received from region</th>
-        <th scope="col">Date received by region</th>
-        <th scope="col">Location stored</th>
-        <th scope="col">Date sent to teams</th>
-        <th scope="col">Received by team</th> {% endcomment %}
+        <th scope="col" class="text-center">Subject</th>
+        <th scope="col" class="text-center">Municipality</th>
+        <th scope="col" class="text-center">Barangay</th>
+
 
       </tr>
     </thead>
     <tbody>
       
       {% if records %}
-        {% for record in records %}
+        {% for record in fromrecords %}
             <tr>
                 <td>{{record.date_received}}</td>
-                <td>{{record.received_from}}</td>
-                <td>{{record.document_type}}</td>
+                <td>{{record.addressee}}</td>
                 <td>{{record.document_date}}</td>
-                <td  style="white-space: pre-line;">{{record.particulars}}</td>
-                {% comment %} <td>{{record.copies}}</td>
-                <td>{{record.date_signed_sa}}</td> {% endcomment %}
-                <td>{{record.transmittal_number}}</td>
-                <td>{{record.date_sent_out}}</td>
-                {% comment %} <td>{{record.date_received_from_region}}</td>
-                <td>{{record.date_received_by_region}}</td>
-                <td>{{record.location_stored}}</td>
-                <td>{{record.date_sent_to_teams}}</td>
-                <td>{{record.received_by_team}}</td> {% endcomment %}
+                <td>{{record.subject}}</td>
+                <td>{{record.municipality}}</td>
+                <td>{{record.barangay}}</td>
             </tr>
         {% endfor %}
       {% endif %}
       
     </tbody>
   </table>
-  {% endif %}
+</div>
+
+{% endif %}
   
-  {% endblock %}
+{% endblock %}

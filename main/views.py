@@ -1,7 +1,7 @@
 from django.contrib import messages
 from django.shortcuts import redirect, render
 from django.contrib.auth import authenticate, login, logout
-from .models import ToRegion
+from .models import ToRegion, FromRegion
 
 # Create your views here.
 
@@ -28,4 +28,8 @@ def logout_user(request):
 
 def inout(request):
     records = ToRegion.objects.all()
-    return render(request,'inout.html',{'records': records})
+    fromrecords = FromRegion.objects.all
+    return render(request,'inout.html',{'records': records, 'fromrecords': fromrecords})
+
+def addToRegion(request):
+    return render(request,'addToRegion.html',{})
