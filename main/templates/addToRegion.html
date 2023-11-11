@@ -1,1 +1,104 @@
-<h1>add data to region</h1>
+{% extends 'base.html' %}
+
+
+{% block layout %}
+
+{% endblock %}
+
+
+{% block content %}
+<div class="container mt-1" style="background-color: #f0f0f0;">
+<h1 class="form-heading">Add Documents to Region</h1>
+<hr>
+<form class="row g-3 mb-4 mt-1" action={% url "home" %}>
+    <div class="col-md-4">
+      <label for="date_receive" class="form-label form-subheading">Date Received</label>
+      <input type="date" class="form-control" id="date_receive" name="date_receive" required>
+    </div>
+    <div class="col-md-4">
+      <label for="document_date" class="form-label form-subheading">Document Date</label>
+      <input type="date" class="form-control" id="document_date" name="document_date">
+    </div>
+    <div class="col-md-4">
+        <label for="receive_from" class="form-label form-subheading">Receive From</label>
+        <select class="form-select" id="receive_from" name="receive_from" required>
+            <option selected disabled>Select Document Type</option>
+            <option value="OSA">OSA</option>
+            <option value="Team1">Team 1</option>
+            <option value="Team2">Team 2</option>
+            <option value="Team3">Team 3</option>
+            <option value="Team4">Team 4</option>
+            <option value="WaterDistrict">Water District</option>
+            <option value="Other">Other</option>
+            
+        </select>
+      </div>
+    {% comment %} row two   {% endcomment %}
+    <div class="col-md-4">
+        <label for="document_type" class="form-label form-subheading">Document type</label>
+        <input type="text" class="form-control" id="document_type" name="date_receive" required>
+        <label for="transmittal_no." class="form-label form-subheading" style="margin-top: 10px;">Transmittal No.</label>
+        <input type="text" class="form-control" id="transmnittal_no." name="transmittal_no." required>
+    </div>
+    <div class="col-md-4">
+        <label for="SA_signed" class="form-label form-subheading">Date Signed by SA</label>
+        <input type="date" class="form-control" id="SA_signed" name="date_receive">
+        <label for="stored_location" class="form-label form-subheading" style="margin-top: 10px;">Stored Location</label>
+        <input type="text" class="form-control" id="stored_location" name="date_receive" required>
+    </div>
+    <div class="col-4">
+        <label for="copies" class="form-label form-subheading">No. of Copies</label>
+        <textarea class="form-control custom-textarea" id="copies" rows="4"></textarea>    
+    </div>
+
+    {% comment %} row three {% endcomment %}
+    <div class="col-12">
+      <label for="particulars" class="form-label form-subheading">Particulars</label>
+      <textarea class="form-control custom-textarea" id="particulars" rows="10"></textarea>
+    </div>
+
+    {% comment %} row four {% endcomment %}
+    <div class="col-md-4">
+        <label for="date_sent_out" class="form-label form-subheading">Date Sent Out</label>
+        <input type="date" class="form-control" id="date_sent_out" name="date_receive" >
+    </div>
+    <div class="col-md-4">
+        <label for="date_receive_from_region" class="form-label form-subheading">Date Received from Region</label>
+        <input type="date" class="form-control" id="date_receive_from_region" name="date_receive" >
+    </div>
+    <div class="col-md-4">
+        <label for="date_receive_by_region" class="form-label form-subheading">Date Received by Region</label>
+        <input type="date" class="form-control" id="date_receive_by_region" name="date_receive" >
+    </div>
+
+    {% comment %} row five {% endcomment %}
+    <div class="col-md-4">
+        <label for="date_sent_to_team" class="form-label form-subheading">Date Sent to Team</label>
+        <input type="date" class="form-control" id="date_sent_to_team" name="date_receive" >
+        <label for="date_sent_to_team" class="form-label form-subheading" style="margin-top: 10px;">Received by(file copy) </label>
+        <input type="text" class="form-control" id="date_sent_to_team" name="date_receive" >
+        <label for="attach_file" class="form-label form-subheading" style="margin-top: 10px;">Attach File</label>
+        <input class="form-control" type="file" id="attach_file">
+    </div>
+    <div class="col-8">
+        <label for="remarks" class="form-label form-subheading">Remarks</label>
+        <textarea class="form-control custom-textarea" id="remarks" rows="7"></textarea>
+    </div>
+
+    {% comment %} row six {% endcomment %}
+    <div class="col-12">
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="gridCheck">
+        <label class="form-check-label form-subheading" for="gridCheck">
+          Check me out
+        </label>
+      </div>
+    </div>
+
+    
+    <div class="col-12">
+      <button type="submit" class="btn btn-primary">save</button>
+    </div>
+  </form>
+</div>
+  {% endblock %}

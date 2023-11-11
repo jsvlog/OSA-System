@@ -6,4 +6,5 @@ urlpatterns = [
     path('logout/', views.logout_user, name='logout'),
     path('inout/', views.inout, name='inout'),
     path('inout/addToRegion/', views.addToRegion, name='addToRegion'),
+    path('inout/addFromRegion/', views.addFromRegion, name='addFromRegion'),
 ]

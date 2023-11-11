@@ -7,17 +7,18 @@ from .models import ToRegion, FromRegion
 
 def home(request):
     if request.method == 'POST':
-        username = request.POST['username']
-        password = request.POST['password']
-        #Authenticate
-        user = authenticate(request, username=username, password=password)
-        if user is not None:
-            login(request, user)
-            messages.success(request, "You have been log in")
-            return redirect('home')
-        else:
-            messages.success(request, "there was an error logging in!")
-            return redirect('home')
+        if "loginbtn" in request.POST:
+            username = request.POST['username']
+            password = request.POST['password']
+            #Authenticate
+            user = authenticate(request, username=username, password=password)
+            if user is not None:
+                login(request, user)
+                messages.success(request, "You have been log in")
+                return redirect('home')
+            else:
+                messages.success(request, "there was an error logging in!")
+                return redirect('home')
     else:
         return render(request, 'home.html', {})
     
@@ -33,3 +34,6 @@ def inout(request):
 
 def addToRegion(request):
     return render(request,'addToRegion.html',{})
+
+def addFromRegion(request):
+    return render(request,'addFromRegion.html',{})
