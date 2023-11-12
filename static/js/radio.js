@@ -30,3 +30,4 @@ option2.addEventListener('change', () => {
         btn2.style.display = 'block'
     }
 });
+

@@ -2,6 +2,8 @@ from django.contrib import messages
 from django.shortcuts import redirect, render
 from django.contrib.auth import authenticate, login, logout
 from .models import ToRegion, FromRegion
+from .forms import ToRegionForm
+
 
 # Create your views here.
 
@@ -29,8 +31,24 @@ def logout_user(request):
 
 def inout(request):
     records = ToRegion.objects.all()
-    fromrecords = FromRegion.objects.all
+    fromrecords = FromRegion.objects.all() 
+    if request.method == 'POST':
+        try:
+            formToRegion = ToRegionForm(request.POST)
+            if "saveToRegion" in request.POST:
+                if formToRegion.is_valid():
+                    formToRegion.save()
+                    messages.success(request, 'You have add record')
+                    return redirect('inout')
+                else:
+                    messages.success(request, 'error not valid')
+                    print(f'Form Errors: {formToRegion.errors}')
+                    return render(request,'inout.html',{'records': records, 'fromrecords': fromrecords})                    
+        except Exception as e:
+            messages.error(request, f'Error: {str(e)}')
+
     return render(request,'inout.html',{'records': records, 'fromrecords': fromrecords})
+    
 
 def addToRegion(request):
     return render(request,'addToRegion.html',{})

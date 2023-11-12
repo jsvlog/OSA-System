@@ -20,8 +20,8 @@
     </div>
   </div>
   <div class="col-md-10 d-flex justify-content-end align-self-end">
-    <button type="button" class="btn btn-primary" id="btnToRegion">Add to Region</button>
-    <button type="button" class="btn btn-primary" id="btnFromRegion">Add from Region</button>
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal" id="btnToRegion">Add to Region</button>
+    <button type="button" class="btn btn-primary" id="btnFromRegion" >Add from Region</button>
   </div>
 </div>
 
@@ -30,7 +30,7 @@
 
 
 <div class="row" id="DisplayTo" >
-  <table id="custo" class="table table-hover table-bordered" >
+  <table id="custo" name="custo" class="table table-hover table-bordered" >
       <thead>
         <tr>
           <th scope="col" class="text-center">Date Received</th>
@@ -42,6 +42,7 @@
           {% comment %} <th scope="col">Date signed by SA</th> {% endcomment %}
           <th scope="col" class="text-center">Transmittal number</th>
           <th scope="col" class="text-center">Date sent out</th>
+          <th scope="col" class="text-center">Actions</th>
           {% comment %} <th scope="col">Date received from region</th>
           <th scope="col">Date received by region</th>
           <th scope="col">Location stored</th>
@@ -64,6 +65,14 @@
                   <td>{{record.date_signed_sa}}</td> {% endcomment %}
                   <td>{{record.transmittal_number}}</td>
                   <td>{{record.date_sent_out}}</td>
+                  <td>
+                    <a >
+                      <i class="bi bi-pencil-square" style="color: blue; font-size: 20px;"></i>
+                    </a>
+                    <a >
+                      <i class="bi bi-trash" style="color: red; font-size: 20px;"></i>
+                    </a>
+                  </td>
                   {% comment %} <td>{{record.date_received_from_region}}</td>
                   <td>{{record.date_received_by_region}}</td>
                   <td>{{record.location_stored}}</td>
@@ -77,6 +86,8 @@
   </table>
 </div>
 
+
+{% comment %} table for from region {% endcomment %}
 <div class="row" id="DisplayFrom" >
   <table id="fromregion" class="table table-hover table-bordered" >
     <thead>
@@ -109,6 +120,10 @@
     </tbody>
   </table>
 </div>
+
+
+{%include "addToRegion.html"%}
+
 
 {% endif %}
   
