@@ -72,8 +72,8 @@
                     <a >
                       <i class="bi bi-pencil-square" style="color: rgb(76, 76, 243); font-size: 20px;"></i>
                     </a>
-                    <a >
-                      <i class="bi bi-trash" style="color: rgb(235, 66, 66); font-size: 20px;"></i>
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#modalDelete" >
+                      <i class="bi bi-trash" style="color: rgb(235, 66, 66); font-size: 20px;" ></i>
                     </a>
                   </td>
                   {% comment %} <td>{{record.date_received_from_region}}</td>
@@ -126,6 +126,7 @@
 
 
 {%include "addToRegion.html"%}
+{%include "deleteModal.html"%}
 
 
 {% endif %}

@@ -55,3 +55,6 @@ def addToRegion(request):
 
 def addFromRegion(request):
     return render(request,'addFromRegion.html',{})
+
+def delete_record(request, pk):
+    return redirect('inout')
