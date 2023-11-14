@@ -48,7 +48,7 @@
           <th scope="col">Location stored</th>
           <th scope="col">Date sent to teams</th>
           <th scope="col">Received by team</th> {% endcomment %}
-
+          
         </tr>
       </thead>
       <tbody>
@@ -66,11 +66,14 @@
                   <td>{{record.transmittal_number}}</td>
                   <td>{{record.date_sent_out}}</td>
                   <td>
-                    <a >
-                      <i class="bi bi-pencil-square" style="color: blue; font-size: 20px;"></i>
+                    <a>
+                      <i class="bi bi-eye-fill" style="color: rgb(51, 173, 137); font-size: 20px;"></i>
                     </a>
                     <a >
-                      <i class="bi bi-trash" style="color: red; font-size: 20px;"></i>
+                      <i class="bi bi-pencil-square" style="color: rgb(76, 76, 243); font-size: 20px;"></i>
+                    </a>
+                    <a >
+                      <i class="bi bi-trash" style="color: rgb(235, 66, 66); font-size: 20px;"></i>
                     </a>
                   </td>
                   {% comment %} <td>{{record.date_received_from_region}}</td>

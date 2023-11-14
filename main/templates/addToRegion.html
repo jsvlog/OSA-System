@@ -1,19 +1,20 @@
 
 {% comment %} modal for to region {% endcomment %}
 <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog"style="max-width: 1200px;">
-    <div class="modal-content">
-      <div class="modal-header">
+  <div class="modal-dialog"style="max-width: 900px;">
+    <div class="modal-content custom-bg">
+      <div class="modal-header" style="text-align: center;">
         <h1 class="modal-title fs-5 form-heading" id="exampleModalLabel">ADD DATA "To Region"</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
 
           <!-- Modal Body -->
-          <div class="modal-body">
+          <div class="modal-body ">
               <!-- Content goes here -->
               <form class="row g-3 mb-4 mt-1" method="POST" action={% url "inout" %}>
+                
                 {% csrf_token %}
-                <div class="col-md-4">
+                <div class="col-md-4" >
                   <label for="date_receive" class="form-label form-subheading">Date Received</label>
                   <input type="date" class="form-control" id="date_received" name="date_received" required>
                 </div>
