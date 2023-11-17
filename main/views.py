@@ -67,3 +67,10 @@ def deleteTo(request, pk):
             deleteIt = get_object_or_404(ToRegion, pk=pk)
             context = {'deleteIt': deleteIt}
             return render(request,'confirmDelete.html',context)
+        
+def updateTo(request, pk):
+    if request.user.is_authenticated:
+        updateIt = get_object_or_404(ToRegion, pk=pk)
+        formatted_date = updateIt.date_received.strftime("%Y-%m-%d")
+        context = {'updateIt': updateIt, 'formatted_date':formatted_date}
+        return render(request,'updateToRegion.html',context)

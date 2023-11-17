@@ -69,7 +69,7 @@
                     <a>
                       <i class="bi bi-eye-fill" style="color: rgb(51, 173, 137); font-size: 20px;"></i>
                     </a>
-                    <a >
+                    <a href="{% url "updateTo" record.id %}">
                       <i class="bi bi-pencil-square" style="color: rgb(76, 76, 243); font-size: 20px;"></i>
                     </a>
                       <a href="{% url "deleteTo" record.id%}">
@@ -127,7 +127,7 @@
 
 
 {%include "addToRegion.html"%}
-{%include "deleteModal.html"%}
+
 
 
 {% endif %}
