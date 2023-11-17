@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+
+
+{%block content%}
+
+
+{% if user.is_authenticated %}
+
+    <h1>Confirm Deletion of Record</h1>
+    <p>Document Type: {{deleteIt.document_type}}</p>
+    <p>Date Receive: {{deleteIt.date_received}}</p>
+
+    <form method="post" action="{% url 'deleteToConfirm' deleteIt.id %}">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger" id="btnDeleteTo">Confirm Delete</button>
+        <a class="btn btn-primary" href="{% url 'inout' %}">Cancel</a>
+    </form>
+
+{% endif %}
+  
+{% endblock %}

@@ -1,5 +1,5 @@
 from django.contrib import messages
-from django.shortcuts import redirect, render
+from django.shortcuts import get_object_or_404, redirect, render
 from django.contrib.auth import authenticate, login, logout
 from .models import ToRegion, FromRegion
 from .forms import ToRegionForm
@@ -56,5 +56,14 @@ def addToRegion(request):
 def addFromRegion(request):
     return render(request,'addFromRegion.html',{})
 
-def delete_record(request, pk):
-    return redirect('inout')
+def deleteTo(request, pk):
+    if request.user.is_authenticated:
+        if request.method == 'POST':
+            deleteTo = ToRegion.objects.get(id=pk)
+            deleteTo.delete()
+            messages.success(request, 'You successfuly deleted a record')
+            return redirect('inout')
+        else:
+            deleteIt = get_object_or_404(ToRegion, pk=pk)
+            context = {'deleteIt': deleteIt}
+            return render(request,'confirmDelete.html',context)

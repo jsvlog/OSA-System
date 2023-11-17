@@ -7,6 +7,7 @@ urlpatterns = [
     path('inout/', views.inout, name='inout'),
     path('inout/addToRegion/', views.addToRegion, name='addToRegion'),
     path('inout/addFromRegion/', views.addFromRegion, name='addFromRegion'),
-    path('delete_record/<int:pk>', views.delete_record, name='delete_record'),
+    path('deleteTo/<int:pk>', views.deleteTo, name='deleteTo'),
+    path('deleteTo/<int:pk>/confirm', views.deleteTo, name='deleteToConfirm'),
 
 ]
