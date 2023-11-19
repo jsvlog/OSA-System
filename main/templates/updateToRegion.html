@@ -7,21 +7,23 @@
 
 {% if user.is_authenticated %}
 
+    <h1 class="modal-title fs-5 form-heading" id="exampleModalLabel">APDATE RECORD</h1>
+    <hr>
     <form class="row g-3 mb-4 mt-1" method="POST" action={% url "inout" %}>
                     
         {% csrf_token %}
         <div class="col-md-4" >
         <label for="date_receive" class="form-label form-subheading">Date Received</label>
-        <input type="date" class="form-control" id="date_received" name="date_received" value="{{ formatted_date }}"required>
+        <input type="date" class="form-control" id="date_received" name="date_received" value="{{ formatted_date_received }}"required>
         </div>
         <div class="col-md-4">
         <label for="document_date" class="form-label form-subheading">Document Date</label>
-        <input type="date" class="form-control" id="document_date" name="document_date">
+        <input type="date" class="form-control" id="document_date" name="document_date"value="{{ formatted_document_date }}">
         </div>
         <div class="col-md-4">
             <label for="receive_from" class="form-label form-subheading" >Receive From</label>
             <select class="form-select" id="receive_from" name="receive_from" required>
-                <option  disabled>Select Document Type</option>
+                <option  {% if updateIt.received_from == None %} selected {% endif %} disabled>Select Document Type</option>
                 <option value="OSA"{% if updateIt.received_from == 'osa' %} selected {% endif %}>OSA</option>
                 <option value="Team1"{% if updateIt.received_from == 'team 1' %} selected {% endif %}>Team 1</option>
                 <option value="Team2"{% if updateIt.received_from == 'team 2' %} selected {% endif %}>Team 2</option>
@@ -35,53 +37,53 @@
         {% comment %} row two   {% endcomment %}
         <div class="col-md-4">
             <label for="document_type" class="form-label form-subheading" >Document type</label>
-            <input type="text" class="form-control" id="document_type" name="document_type"  value="{{updateIt.received_from}}" required>
+            <input type="text" class="form-control" id="document_type" name="document_type"  value="{{updateIt.document_type}}" required>
             <label for="transmittal_no." class="form-label form-subheading" style="margin-top: 10px;" >Transmittal No.</label>
-            <input type="text" class="form-control" id="transmittal_number" name="transmittal_number" required>
+            <input type="text" class="form-control" id="transmittal_number" name="transmittal_number" value="{{updateIt.transmittal_number}}" required>
         </div>
         <div class="col-md-4">
             <label for="SA_signed" class="form-label form-subheading" id="date_signed_sa" name="date_signed_sa">Date Signed by SA</label>
-            <input type="date" class="form-control" id="date_signed_sa" name="date_signed_sa">
+            <input type="date" class="form-control" id="date_signed_sa" name="date_signed_sa" value="{{formatted_date_signed_sa}}">
             <label for="stored_location" class="form-label form-subheading" style="margin-top: 10px;">Stored Location</label>
-            <input type="text" class="form-control" id="location_stored" name="location_stored" required>
+            <input type="text" class="form-control" id="location_stored" name="location_stored" value="{{updateIt.location_stored}}" required>
         </div>
         <div class="col-4">
             <label for="copies" class="form-label form-subheading">No. of Copies</label>
-            <textarea class="form-control custom-textarea" id="copies" name="copies" rows="4"></textarea>    
+            <textarea class="form-control custom-textarea" id="copies" name="copies" rows="4"> {{updateIt.copies}} </textarea>    
         </div>
 
         {% comment %} row three {% endcomment %}
         <div class="col-12">
         <label for="particulars" class="form-label form-subheading">Particulars</label>
-        <textarea class="form-control custom-textarea" id="particulars" name="particulars" rows="10"></textarea>
+        <textarea class="form-control custom-textarea" id="particulars" name="particulars" rows="10">{{updateIt.particulars}}</textarea>
         </div>
 
         {% comment %} row four {% endcomment %}
         <div class="col-md-4">
             <label for="date_sent_out" class="form-label form-subheading">Date Sent Out</label>
-            <input type="date" class="form-control" id="date_sent_out" name="date_sent_out" >
+            <input type="date" class="form-control" id="date_sent_out" name="date_sent_out" value="{{formatted_date_sent_out}}">
         </div>
         <div class="col-md-4">
             <label for="date_receive_from_region" class="form-label form-subheading">Date Received from Region</label>
-            <input type="date" class="form-control" id="date_received_from_region" name="date_received_from_region" >
+            <input type="date" class="form-control" id="date_received_from_region" name="date_received_from_region" value="{{formatted_date_received_from_region}}">
         </div>
         <div class="col-md-4">
             <label for="date_receive_by_region" class="form-label form-subheading">Date Received by Region</label>
-            <input type="date" class="form-control" id="date_received_by_region" name="date_received_by_region" >
+            <input type="date" class="form-control" id="date_received_by_region" name="date_received_by_region" value="{{formatted_date_received_by_region}}">
         </div>
 
         {% comment %} row five {% endcomment %}
         <div class="col-md-4">
             <label for="date_sent_to_team" class="form-label form-subheading">Date Sent to Team</label>
-            <input type="date" class="form-control" id="date_sent_to_teams" name="date_sent_to_teams" >
+            <input type="date" class="form-control" id="date_sent_to_teams" name="date_sent_to_teams"value="{{formatted_date_sent_to_teams}}" >
             <label for="date_sent_to_team" class="form-label form-subheading" style="margin-top: 10px;">Received by(file copy) </label>
-            <input type="text" class="form-control" id="dreceived_by_team" name="received_by_team" >
+            <input type="text" class="form-control" id="dreceived_by_team" name="received_by_team" value="{{updateIt.received_by_team}}">
             <label for="attach_file" class="form-label form-subheading" style="margin-top: 10px;">Attach File</label>
             <input class="form-control" type="file" id="attach_file">
         </div>
         <div class="col-8">
             <label for="remarks" class="form-label form-subheading">Remarks</label>
-            <textarea class="form-control custom-textarea" id="remarks" rows="7"></textarea>
+            <textarea class="form-control custom-textarea" id="remarks" rows="7">{{updateIt.remarks}}</textarea>
         </div>
 
         {% comment %} row six {% endcomment %}
@@ -97,6 +99,7 @@
         
         <div class="col-12">
         <button type="submit" class="btn btn-primary" id="updateToRegion" name="updateToRegion">update record</button>
+        <a class="btn btn-primary" href="{% url 'inout' %}">Cancel</a>
         </div>
     </form>
 

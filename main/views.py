@@ -71,6 +71,41 @@ def deleteTo(request, pk):
 def updateTo(request, pk):
     if request.user.is_authenticated:
         updateIt = get_object_or_404(ToRegion, pk=pk)
-        formatted_date = updateIt.date_received.strftime("%Y-%m-%d")
-        context = {'updateIt': updateIt, 'formatted_date':formatted_date}
+        if updateIt.date_received:
+            formatted_date_received = updateIt.date_received.strftime("%Y-%m-%d")
+        else:
+            formatted_date_received = None
+        if updateIt.document_date:
+            formatted_document_date = updateIt.document_date.strftime("%Y-%m-%d")
+        else:
+            formatted_document_date = None
+        if updateIt.date_signed_sa:
+            formatted_date_signed_sa = updateIt.date_signed_sa.strftime("%Y-%m-%d")
+        else:
+            formatted_date_signed_sa = None
+        if updateIt.date_sent_out:
+            formatted_date_sent_out = updateIt.date_sent_out.strftime("%Y-%m-%d")
+        else:
+            formatted_date_sent_out = None
+        if updateIt.date_received_from_region:
+            formatted_date_received_from_region = updateIt.date_received_from_region.strftime("%Y-%m-%d")
+        else:
+            formatted_date_received_from_region = None
+        if updateIt.date_received_by_region:
+            formatted_date_received_by_region = updateIt.date_received_by_region.strftime("%Y-%m-%d")
+        else:
+            formatted_date_received_by_region = None
+        if updateIt.date_sent_to_teams:
+            formatted_date_sent_to_teams = updateIt.date_sent_to_teams.strftime("%Y-%m-%d")
+        else:
+            formatted_date_sent_to_teams = None
+        context = {'updateIt': updateIt, 
+                   'formatted_date_received':formatted_date_received,
+                   'formatted_document_date':formatted_document_date,
+                   'formatted_date_signed_sa':formatted_date_signed_sa,
+                   'formatted_date_sent_out':formatted_date_sent_out,
+                    'formatted_date_received_from_region':formatted_date_received_from_region,
+                    'formatted_date_received_by_region':formatted_date_received_by_region,
+                    'formatted_date_sent_to_teams':formatted_date_sent_to_teams,
+                   }
         return render(request,'updateToRegion.html',context)
