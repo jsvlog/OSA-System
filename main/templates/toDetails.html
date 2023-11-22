@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+
+
+{%block content%}
+
+
+{% if user.is_authenticated %}
+
+
+<div class="row gx-1" style=" margin: 0px 0px 0px 0px;">
+    <div class="col-md-12">
+        <div class="card text-black" style="background-color: #EEF5FF; padding: 10px;" >
+            <div class="row">
+                <div class="col-md-3">
+                    <h6 class="card-subtitle mb-1 text-muted" style="display: inline-block; color: #7C93C3 !important;">Date received:</h6>
+                    <p class="card-text" style="display: inline-block; margin: 0px;">{{toDetails.date_received}}</p>
+                </div>
+                <div class="col-md-3">
+                    <h6 class="card-subtitle mb-1 text-muted" style="display: inline-block; color: #7C93C3 !important;">Document date:</h6>
+                    <p class="card-text" style="display: inline-block; margin: 0px;">{{toDetails.document_date}}</p>
+                </div>
+                <div class="col-md-3">
+                    <h6 class="card-subtitle mb-1 text-muted" style="display: inline-block; color: #7C93C3 !important;">Received from:</h6>
+                    <p class="card-text" style="display: inline-block; margin: 0px;">{{toDetails.received_from}}</p>
+                </div>
+                <div class="col-md-3">
+                    <h6 class="card-subtitle mb-1 text-muted" style="display: inline-block; color: #7C93C3 !important;">Document type:</h6>
+                    <p class="card-text" style="display: inline-block; margin: 0px;">{{toDetails.document_type}}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <h6 class="card-subtitle mb-1 text-muted" style="display: inline-block; color: #7C93C3 !important;">Transmittal No.:</h6>
+                    <p class="card-text" style="display: inline-block; margin: 0px;">{{toDetails.document_type}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{%include "addToRegion.html"%}
+
+
+
+{% endif %}
+
+{% endblock %}

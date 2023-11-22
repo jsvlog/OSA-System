@@ -109,3 +109,9 @@ def updateTo(request, pk):
                     'formatted_date_sent_to_teams':formatted_date_sent_to_teams,
                    }
         return render(request,'updateToRegion.html',context)
+    
+def toDetails(request, pk):
+    if request.user.is_authenticated:
+        toDetails = get_object_or_404(ToRegion, pk=pk)
+        context = {'toDetails': toDetails}
+        return render(request,'toDetails.html', context)

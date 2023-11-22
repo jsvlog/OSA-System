@@ -10,4 +10,5 @@ urlpatterns = [
     path('deleteTo/<int:pk>', views.deleteTo, name='deleteTo'),
     path('deleteTo/<int:pk>/confirm', views.deleteTo, name='deleteToConfirm'),
     path('updateTo/<int:pk>', views.updateTo, name='updateTo'),
+    path('toDetails/<int:pk>', views.toDetails, name='toDetails'),
 ]
