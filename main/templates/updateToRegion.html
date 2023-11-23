@@ -7,13 +7,13 @@
 
 {% if user.is_authenticated %}
 
-    <h1 class="modal-title fs-5 form-heading" id="exampleModalLabel">UPDATE RECORD</h1>
+    <h1 class="modal-title fs-5 form-heading " id="exampleModalLabel">UPDATE RECORD</h1>
     <hr>
     <form class="row g-3 mb-4 mt-1" method="POST" action={% url "inout" %}>
                     
         {% csrf_token %}
         <div class="col-md-4" >
-        <label for="date_receive" class="form-label form-subheading">Date Received</label>
+        <label for="date_receive" class="form-label form-subheading ">Date Received</label>
         <input type="date" class="form-control" id="date_received" name="date_received" value="{{ formatted_date_received }}"required>
         </div>
         <div class="col-md-4">
