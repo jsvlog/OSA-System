@@ -12,8 +12,34 @@
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
           <a class="nav-link active" aria-current="page" href="{% url "inout" %}">From/To Region</a>
-          <a class="nav-link active" href="#">Inventory</a>
-          <a class="nav-link active" href="#">leaves</a>
+          <div class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMonitoring" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Monitorings
+            </a>
+            <ul class="dropdown-menu inside-bg" aria-labelledby="navbarDropdownMonitoring">
+              <!-- Dropdown items here -->
+              <li><a class="dropdown-item" href="#">AAR and BAAR</a></li>
+              <li><a class="dropdown-item" href="#">FS and BFS</a></li>
+              <li><a class="dropdown-item" href="#">Demand Letters</a></li>
+              <li><a class="dropdown-item" href="#">Leave Credits</a></li>
+              <li><a class="dropdown-item" href="#">Memorandums</a></li>
+              <li><a class="dropdown-item" href="#">Team Communications</a></li>
+              <li><a class="dropdown-item" href="#">Agency Communications</a></li>
+            </ul>
+          </div>
+          <div class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownInventory" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Inventories
+            </a>
+            <ul class="dropdown-menu inside-bg" aria-labelledby="navbarDropdownInventory">
+              <!-- Dropdown items here -->
+              <li><a class="dropdown-item" href="#">New Building Stockroom</a></li>
+              <li><a class="dropdown-item" href="#">Main Building Stockroom</a></li>
+              <li><a class="dropdown-item" href="#">PGOM Stockroom</a></li>
+              <li><a class="dropdown-item" href="#">Supplies</a></li>
+            </ul>
+          </div>
+
         </div>
       </div>
       {% if user.is_authenticated %}
