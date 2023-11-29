@@ -100,15 +100,26 @@ def updateTo(request, pk):
         else:
             formatted_date_sent_to_teams = None
         context = {'updateIt': updateIt, 
-                   'formatted_date_received':formatted_date_received,
-                   'formatted_document_date':formatted_document_date,
-                   'formatted_date_signed_sa':formatted_date_signed_sa,
-                   'formatted_date_sent_out':formatted_date_sent_out,
+                'formatted_date_received':formatted_date_received,
+                'formatted_document_date':formatted_document_date,
+                'formatted_date_signed_sa':formatted_date_signed_sa,
+                'formatted_date_sent_out':formatted_date_sent_out,
                     'formatted_date_received_from_region':formatted_date_received_from_region,
                     'formatted_date_received_by_region':formatted_date_received_by_region,
                     'formatted_date_sent_to_teams':formatted_date_sent_to_teams,
-                   }
-        return render(request,'updateToRegion.html',context)
+                }
+        if request.method == 'POST':
+            records = ToRegion.objects.all()
+            fromrecords = FromRegion.objects.all()
+            current_record = ToRegion.objects.get(id=pk)
+            form =ToRegionForm(request.POST, instance=current_record)
+            if form.is_valid():
+                form.save()
+                messages.success(request, 'Record has been updated')
+                return redirect('inout')
+            return render(request,'updateToRegion.html',context)
+        else:
+            return render(request,'updateToRegion.html',context)
     
 def toDetails(request, pk):
     if request.user.is_authenticated:

@@ -9,7 +9,7 @@
 
     <h1 class="modal-title fs-5 form-heading " id="exampleModalLabel">UPDATE RECORD</h1>
     <hr>
-    <form class="row g-3 mb-4 mt-1" method="POST" action={% url "inout" %}>
+    <form class="row g-3 mb-4 mt-1" method="POST" action={% url "updateTo" updateIt.id %}>
                     
         {% csrf_token %}
         <div class="col-md-4" >
