@@ -7,21 +7,22 @@
 
 {% if user.is_authenticated %}
 
-<div class="row gx-1">
+<div class="row gx-1" style="margin: 10px 0px 10px 0px;">
   <div class="col-md-2">
     <div class="form-check">
         <input class="form-check-input" type="radio" name="contentOption" id="option1" checked>
         <label class="form-check-label" for="DisplayTo">To Region</label>
     </div>
-
+  </div>
+  <div class="col-md-2">
     <div class="form-check">
         <input class="form-check-input" type="radio" name="contentOption" id="option2">
         <label class="form-check-label" for="DisplayFrom">From region</label>
     </div>
   </div>
-  <div class="col-md-10 d-flex justify-content-end align-self-end">
+  <div class="col-md-8 d-flex justify-content-end align-self-end">
     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal" id="btnToRegion">Add to Region</button>
-    <button type="button" class="btn btn-primary" id="btnFromRegion" >Add from Region</button>
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#fromModal" id="btnFromRegion" >Add from Region</button>
   </div>
 </div>
 
@@ -67,13 +68,13 @@
                   <td>{{record.date_sent_out}}</td>
                   <td>
                     <a href="{% url "toDetails" record.id %}" target="_blank">
-                      <i class="bi bi-eye-fill" style="color: rgb(51, 173, 137); font-size: 20px;"></i>
+                      <i class="bi bi-eye-fill" style="color: rgb(51, 173, 137); font-size: 16px;"></i>
                     </a>
                     <a href="{% url "updateTo" record.id %}" target="_blank">
-                      <i class="bi bi-pencil-square" style="color: rgb(76, 76, 243); font-size: 20px;"></i>
+                      <i class="bi bi-pencil-square" style="color: rgb(76, 76, 243); font-size: 16px;"></i>
                     </a>
                       <a href="{% url "deleteTo" record.id%}">
-                        <i class="bi bi-trash" style="color: rgb(235, 66, 66); font-size: 20px;"></i>
+                        <i class="bi bi-trash" style="color: rgb(235, 66, 66); font-size: 16px;"></i>
                       </a>
                     
                   </td>
@@ -127,7 +128,7 @@
 
 
 {%include "addToRegion.html"%}
-
+{%include "addFromRegion.html"%}
 
 
 {% endif %}

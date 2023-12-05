@@ -21,3 +21,9 @@
 .modal-title {
     font-family: 'Comic Sans MS', sans-serif; /* Replace 'Your Chosen Font' with the actual font name or font stack */
   }
+
+/* Example: Reduce font size for DataTables */
+.dataTables_wrapper table.dataTable thead th,
+.dataTables_wrapper table.dataTable tbody td {
+  font-size: 12px; /* Adjust this value as needed */
+}
