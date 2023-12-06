@@ -32,7 +32,7 @@ class FromRegion(models.Model):
     reference_number = models.CharField(max_length=100)
     municipality = models.CharField(max_length=100)
     barangay = models.CharField(max_length=100)
-    date_received = models.DateField()
+    date_received = models.DateField() 
     received_from = models.CharField(max_length=100)
     date_sentout_from_osa = models.DateField()
     team_receiver = models.CharField(max_length=100)

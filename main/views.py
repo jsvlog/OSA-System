@@ -2,7 +2,7 @@ from django.contrib import messages
 from django.shortcuts import get_object_or_404, redirect, render
 from django.contrib.auth import authenticate, login, logout
 from .models import ToRegion, FromRegion
-from .forms import ToRegionForm
+from .forms import ToRegionForm, FromRegionForm
 
 
 # Create your views here.
@@ -35,6 +35,7 @@ def inout(request):
     if request.method == 'POST':
         try:
             formToRegion = ToRegionForm(request.POST)
+            formFromRegion = FromRegionForm(request.POST)
             if "saveToRegion" in request.POST:
                 if formToRegion.is_valid():
                     formToRegion.save()
@@ -43,7 +44,17 @@ def inout(request):
                 else:
                     messages.success(request, 'error not valid')
                     print(f'Form Errors: {formToRegion.errors}')
-                    return render(request,'inout.html',{'records': records, 'fromrecords': fromrecords})                    
+                    return render(request,'inout.html',{'records': records, 'fromrecords': fromrecords})
+            elif "saveFromRegion" in request.POST:
+                if formFromRegion.is_valid():
+                    formFromRegion.save()
+                    messages.success(request, 'You have add record')
+                    return redirect('inout')
+                else:
+                    messages.success(request, 'error not valid')
+                    print(f'Form Errors: {formToRegion.errors}')
+                    return render(request,'inout.html',{'records': records, 'fromrecords': fromrecords})
+
         except Exception as e:
             messages.error(request, f'Error: {str(e)}')
 
