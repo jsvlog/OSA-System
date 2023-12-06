@@ -33,14 +33,14 @@
                   </div>
                 {% comment %} row two   {% endcomment %}
                 <div class="col-md-4">
-                    <label for="document_type" class="form-label form-subheading" >Document type</label>
-                    <input type="text" class="form-control" id="document_type" name="document_type" required>
+                    <label for="type_of_doccument" class="form-label form-subheading">Document type</label>
+                    <input type="text" class="form-control" id="type_of_doccument" name="type_of_doccument" required>
                     <label for="reference_number" class="form-label form-subheading" style="margin-top: 10px;" >Reference Number</label>
                     <input type="text" class="form-control" id="reference_number" name="reference_number" required>
                 </div>
                 <div class="col-md-4">
-                    <label for="date_sent_out_from_osa" class="form-label form-subheading" id="date_signed_sa" name="date_signed_sa">Date Sent out from OSA</label>
-                    <input type="date" class="form-control" id="date_sent_out_from_osa" name="date_sent_out_from_osa">
+                    <label for="date_sentout_from_osa" class="form-label form-subheading" id="date_signed_sa" name="date_signed_sa">Date Sent out from OSA</label>
+                    <input type="date" class="form-control" id="date_sentout_from_osa" name="date_sentout_from_osa">
                     <label for="location_stored" class="form-label form-subheading" style="margin-top: 10px;">Stored Location</label>
                     <input type="text" class="form-control" id="location_stored" name="location_stored" required>
                 </div>
@@ -74,7 +74,7 @@
                 {% comment %} row five {% endcomment %}
                 <div class="col-md-6">
                     <label for="details" class="form-label form-subheading">Details</label>
-                    <textarea class="form-control custom-textarea" id="details" rows="5"></textarea>
+                    <textarea class="form-control custom-textarea" id="details" name="details" rows="5"></textarea>
                 </div>
                 <div class="col-6">
                     <label for="remarks" class="form-label form-subheading">Remarks</label>

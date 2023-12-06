@@ -46,10 +46,11 @@ def inout(request):
                     print(f'Form Errors: {formToRegion.errors}')
                     return render(request,'inout.html',{'records': records, 'fromrecords': fromrecords})
             elif "saveFromRegion" in request.POST:
+                button_clicked = 'fromRegion'
                 if formFromRegion.is_valid():
                     formFromRegion.save()
                     messages.success(request, 'You have add record')
-                    return redirect('inout')
+                    return render(request,'inout.html',{'records': records, 'fromrecords': fromrecords, 'button_clicked': button_clicked})
                 else:
                     messages.success(request, 'error not valid')
                     print(f'Form Errors: {formToRegion.errors}')
